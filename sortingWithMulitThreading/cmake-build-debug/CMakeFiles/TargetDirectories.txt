@@ -1,0 +1,3 @@
+C:/Users/Dante/CLionProjects/sortingWithMulitThreading/cmake-build-debug/CMakeFiles/sortingWithMulitThreading.dir
+C:/Users/Dante/CLionProjects/sortingWithMulitThreading/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Dante/CLionProjects/sortingWithMulitThreading/cmake-build-debug/CMakeFiles/rebuild_cache.dir
