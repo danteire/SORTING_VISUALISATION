@@ -45,7 +45,7 @@ void selectionSort(int* arr, int n, SDL_Renderer* renderer){
         int min_index = i;
 
         for(int j = i +1; j<n ;j++){
-            if(*(arr+j) < *(arr+min_index)){
+            if(*(arr+j) > *(arr+min_index)){
                 min_index = j;
             }
         }
@@ -53,23 +53,7 @@ void selectionSort(int* arr, int n, SDL_Renderer* renderer){
         if(min_index != i){
             swap((arr+min_index),(arr+i));
 
-            //clear screen
-            if(SDL_SetRenderDrawColor(renderer,0,0,0,255)!=0){
-                cout<<"SetRenderDrawColor ERROR";
-                return;
-            }
-            if(SDL_RenderClear(renderer)!=0){
-                cout<<"RENDER CLEAR ERROR";
-                return;
-            }
-            //draw update
-            drawState(arr,n,renderer,min_index,i);
-
-            //show to window
-            SDL_RenderPresent(renderer);
-
-
-            SDL_Delay(10);
+            updateRenderer(arr,n,renderer,min_index,i);
         }
 
     }

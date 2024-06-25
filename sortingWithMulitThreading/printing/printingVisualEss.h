@@ -20,7 +20,11 @@ using namespace std;
 
 void printArray(const int arr[], int size);
 
+
+int findMax(const int *arr,int size);
+
 void windowShow(int* arr, int size);
 void drawState(const int* arr,int size, SDL_Renderer* renderer, int red, int blue);
+void updateRenderer(const int* arr,int size, SDL_Renderer* renderer, int red, int blue);
 
 #endif //SORTINGWITHMULITTHREADING_PRINTINGVISUALESS_H

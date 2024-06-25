@@ -11,17 +11,34 @@ void printArray(const int* arr, int size){
     cout<<endl;
 }
 
+int findMax(const int *arr,int size){
+
+    int max = *arr;
+
+    for(int i=0;i<size;i++){
+        if(*(arr+i) >= max){
+            max = *(arr+i);
+        }
+    }
+    return max;
+}
+
 void windowShow(int* arr, int size){
+
+    int maxY = findMax(arr,size);
+
+    float scaleW = (float)SCREEN_WIDTH/(float)size;
+    float scaleH = (float)SCREEN_HEIGHT/(float)maxY;
 
     //window setup
     SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
-    if(SDL_CreateWindowAndRenderer(size*5,size*5,0,&window,&renderer)!=0){
+    if(SDL_CreateWindowAndRenderer(SCREEN_WIDTH,SCREEN_HEIGHT,0,&window,&renderer)!=0){
         cout<<"WINDOW CREATION ERROR";
         return;
     }
 
-    if(SDL_RenderSetScale(renderer,1,2)!=0){
+    if(SDL_RenderSetScale(renderer,scaleW,scaleH)!=0){
         cout<<"RENDER SET ERROR";
         return;
     }
@@ -46,4 +63,24 @@ void drawState(const int* arr, int size, SDL_Renderer* renderer, int red, int bl
             return;
         }
     }
+}
+
+void updateRenderer(const int* arr,int size, SDL_Renderer* renderer, int red, int blue){
+    //clear screen
+    if(SDL_SetRenderDrawColor(renderer,0,0,0,255)!=0){
+        cout<<"SetRenderDrawColor ERROR";
+        return;
+    }
+    if(SDL_RenderClear(renderer)!=0){
+        cout<<"RENDER CLEAR ERROR";
+        return;
+    }
+    //draw update
+    drawState(arr,size,renderer,red,blue);
+
+    //show to window
+    SDL_RenderPresent(renderer);
+
+
+    SDL_Delay(10);
 }

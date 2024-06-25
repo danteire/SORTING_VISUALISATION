@@ -3,8 +3,9 @@
 
 int main(int argc, char** argv){
 
-    int* arr = generateArray(250);
-    windowShow(arr,250);
+    int arr_size = 1000;
+    int* arr = generateArray(arr_size);
+    windowShow(arr,arr_size);
 
     return 0;
 }
