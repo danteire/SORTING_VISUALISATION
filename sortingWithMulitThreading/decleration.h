@@ -10,10 +10,16 @@
 
 using namespace std;
 
+
 void swap(int *xp, int *yp);
 int* generateArray(int size);
 void destroyArray(int* arr);
 
-void selectionSort(int* arr, int n, SDL_Renderer* renderer);
+bool isRunning();
 
+void shuffle_array(int arr[], int n, SDL_Renderer* renderer);
+
+void selectionSort(int* arr, int n, SDL_Renderer* renderer);
+void bubbleSort(int* arr, int n, SDL_Renderer* renderer);
+void insertionSort(int* arr, int n, SDL_Renderer* renderer);
 #endif //SORTINGWITHMULITTHREADING_DECLERATION_H

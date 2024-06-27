@@ -3,7 +3,7 @@
 
 int main(int argc, char** argv){
 
-    int arr_size = 1000;
+    int arr_size = 500;
     int* arr = generateArray(arr_size);
     windowShow(arr,arr_size);
 

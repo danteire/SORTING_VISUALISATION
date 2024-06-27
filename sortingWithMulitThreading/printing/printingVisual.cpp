@@ -46,6 +46,18 @@ void windowShow(int* arr, int size){
     //sorting + rendering
     selectionSort(arr,size,renderer);
 
+    //after sorting shuffle for aothe shuffle
+
+    shuffle_array(arr,size,renderer);
+
+//    bubbleSort(arr,size,renderer);
+//
+//    shuffle_array(arr,size,renderer);
+    clean(renderer,window);
+    insertionSort(arr,size,renderer);
+
+
+    destroyArray(arr);
 }
 
 void drawState(const int* arr, int size, SDL_Renderer* renderer, int red, int blue){
@@ -83,4 +95,10 @@ void updateRenderer(const int* arr,int size, SDL_Renderer* renderer, int red, in
 
 
     SDL_Delay(10);
+}
+
+void clean(SDL_Renderer* renderer, SDL_Window* window){
+    SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(renderer);
+    SDL_Quit();
 }
